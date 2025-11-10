@@ -92,49 +92,6 @@ app.get('/api/test', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/payments', paymentRoutes);
 
-// 🚨 ADDED: Debug routes - POST VERSIONS
-app.get('/api/debug/fix-admin', async (req, res) => {
-    try {
-        const UserModule = await import('./models/User.js');
-        const User = UserModule.default;
-
-        // ✅ Correct bcrypt import
-        const bcrypt = (await import('bcryptjs')).default;
-
-        const plainPassword = "adminforPayments@university.com";
-
-        // ✅ Correct hash
-        const hashedPassword = await bcrypt.hash(plainPassword, 10);
-
-        // ✅ Force update without triggering pre-save
-        await User.updateOne(
-            { email: "adminpayments@gmail.com" },
-            {
-                $set: {
-                    name: "Admin",
-                    role: "admin",
-                    password: hashedPassword,
-                    mobile: "9999999999",
-                    department: "CSE"
-                }
-            },
-            { upsert: true }
-        );
-
-        res.json({
-            success: true,
-            message: "Admin password overwritten successfully ✅",
-            passwordUsed: plainPassword
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message
-        });
-    }
-});
-
 
 app.get('/api/debug/check-admin', async (req, res) => {
     try {
