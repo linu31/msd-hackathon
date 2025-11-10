@@ -22,7 +22,6 @@ const Login = () => {
     if (formData.userType === 'admin') {
       setFormData({
         email: "adminpayments@gmail.com",
-        regNo: "",
         password: "adminforPayments@university.com",
         userType: "admin"
       });
