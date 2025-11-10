@@ -12,5 +12,10 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  preview: {
+    allowedHosts: ['msd-hackathon-1.onrender.com'],   // ← add this
+    host: true,
+    port: 10000
   }
 })
