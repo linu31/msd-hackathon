@@ -1,0 +1,608 @@
+/* Premium Professional Profile Card CSS - Enhanced White Theme */
+
+/* Professional White Background with Subtle Academic Patterns */
+.profile-container {
+  margin-top: 60px;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: 
+    linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.02"><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="%23000" stroke-width="1"/><path d="M40,40 L60,40 L60,60 L40,60 Z" fill="none" stroke="%23000" stroke-width="0.5"/></svg>') repeat;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Sophisticated Geometric Background Elements */
+.profile-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.03) 0%, transparent 25%),
+    linear-gradient(45deg, transparent 49.5%, rgba(14, 165, 233, 0.02) 49.5%, rgba(14, 165, 233, 0.02) 50.5%, transparent 50.5%),
+    linear-gradient(-45deg, transparent 49.5%, rgba(14, 165, 233, 0.02) 49.5%, rgba(14, 165, 233, 0.02) 50.5%, transparent 50.5%);
+  background-size: 400px 400px, 400px 400px, 80px 80px, 80px 80px;
+  animation: subtleShift 25s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Vignan University Watermark */
+.profile-container::after {
+  content: 'VIGNAN UNIVERSITY';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  white-space: nowrap;
+  letter-spacing: 8px;
+  z-index: 0;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Premium Card with Enhanced Professional Design */
+.profile-card {
+  width: 500px;
+  padding: 50px 55px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.92) 100%);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  animation: professionalSlideIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Premium Card Hover Effects */
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.12),
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 10px 25px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(14, 165, 233, 0.15);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Premium Header Badge - Sky Blue */
+.profile-card::before {
+  content: 'ACADEMIC PROFILE';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  box-shadow: 
+    0 10px 30px rgba(14, 165, 233, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Premium Title Styling */
+.profile-title {
+  margin: 25px 0 0 0;
+  font-size: 36px;
+  font-weight: 800;
+  color: #333;
+  text-align: center;
+  letter-spacing: -0.5px;
+  position: relative;
+  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Premium Title Underline - Sky Blue */
+.profile-title::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #0ea5e9 20%, 
+    #0284c7 50%, 
+    #0ea5e9 80%, 
+    transparent 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+}
+
+.profile-subtitle {
+  margin: 35px 0 45px;
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding: 0 10px;
+}
+
+/* Premium Input Groups */
+.profile-group {
+  margin-top: 30px;
+  position: relative;
+}
+
+.profile-group label {
+  font-size: 13px;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Premium Label Accent - Sky Blue */
+.profile-group label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 14px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+/* Premium Input Container */
+.profile-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 14px;
+  padding: 3px;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-input-wrapper:focus-within {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.03),
+    0 4px 15px rgba(14, 165, 233, 0.15),
+    0 0 0 3px rgba(14, 165, 233, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+/* Premium Input Styling */
+.profile-group input {
+  width: 100%;
+  padding: 17px 22px 17px 54px;
+  font-size: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.profile-group input::placeholder {
+  color: #888;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.profile-group input:focus::placeholder {
+  color: #bbb;
+  transform: translateX(5px);
+}
+
+/* Input Background Icons - Sky Blue */
+.profile-group:nth-child(1) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.profile-group:nth-child(2) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.profile-group:nth-child(3) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.profile-group:nth-child(4) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><circle cx="12" cy="12" r="5"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.profile-group:nth-child(5) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+/* Input Validation States */
+.profile-group input:valid {
+  background-image: none;
+}
+
+.profile-group input:valid + .profile-input-icon::after {
+  content: '✓';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16a34a;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Premium Save Button - Green Theme */
+.save-btn {
+  width: 100%;
+  margin-top: 45px;
+  padding: 19px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  border: none;
+  color: white;
+  border-radius: 16px;
+  font-size: 17px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 
+    0 10px 30px rgba(22, 163, 74, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Button Hover Effects */
+.save-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  transition: left 0.6s;
+}
+
+.save-btn:hover::before {
+  left: 100%;
+}
+
+.save-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 18px 40px rgba(22, 163, 74, 0.4),
+    0 12px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  letter-spacing: 1.2px;
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+}
+
+.save-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 25px rgba(22, 163, 74, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium Red Back Button */
+.back-btn {
+  position: absolute;
+  top: 100px;
+  left: 60px;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 16px 30px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 
+    0 12px 30px rgba(220, 38, 38, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-btn::before {
+  content: '←';
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 45px rgba(220, 38, 38, 0.4),
+    0 12px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.back-btn:hover::before {
+  transform: translateX(-3px);
+}
+
+.back-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Premium Success Notification */
+.success-message {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: white;
+  padding: 22px 28px;
+  border-radius: 18px;
+  box-shadow: 
+    0 18px 40px rgba(22, 163, 74, 0.3),
+    0 12px 25px rgba(0, 0, 0, 0.1);
+  transform: translateX(150%) scale(0.9);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.success-message.show {
+  transform: translateX(0) scale(1);
+}
+
+/* Premium Animations */
+@keyframes professionalSlideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(50px) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes subtleShift {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 0 0, 0 0; 
+  }
+  50% { 
+    background-position: 5% 5%, 95% 95%, 40px 40px, 40px 40px; 
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .profile-card {
+    width: 480px;
+    padding: 45px 50px;
+  }
+  
+  .back-btn {
+    left: 40px;
+    top: 90px;
+  }
+  
+  .profile-container::after {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    width: 90%;
+    padding: 40px 35px;
+    margin: 20px;
+  }
+  
+  .profile-title {
+    font-size: 30px;
+  }
+  
+  .back-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 30px auto;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .profile-container {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+  
+  .profile-group input {
+    padding: 16px 20px 16px 52px;
+  }
+  
+  .profile-container::after {
+    font-size: 60px;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 35px 25px;
+    border-radius: 20px;
+  }
+  
+  .profile-title {
+    font-size: 26px;
+  }
+  
+  .profile-subtitle {
+    font-size: 14px;
+    margin: 30px 0 35px;
+  }
+  
+  .save-btn {
+    padding: 17px;
+    font-size: 15px;
+  }
+  
+  .back-btn {
+    padding: 14px 25px;
+    font-size: 14px;
+  }
+  
+  .profile-container::after {
+    font-size: 40px;
+  }
+}
+
+/* REMOVED DARK MODE SUPPORT - Keeping only white background */
+
+/* Premium Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Premium Focus Styles */
+.profile-group input:focus-visible,
+.save-btn:focus-visible,
+.back-btn:focus-visible {
+  outline: 3px solid #0ea5e9;
+  outline-offset: 3px;
+}
+
+/* Premium Loading State */
+.save-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.save-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+  border: 3px solid transparent;
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: premiumSpin 1s linear infinite;
+}
+
+@keyframes premiumSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Premium Selection Styling */
+::selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: inherit;
+}
+
+/* Premium Scrollbar Styling */
+.profile-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.profile-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.profile-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border-radius: 3px;
+}
+
+.profile-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+}

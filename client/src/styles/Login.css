@@ -1,0 +1,676 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 50%, #f5f5f5 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.03) 0%, transparent 25%),
+    linear-gradient(45deg, transparent 49.5%, rgba(14, 165, 233, 0.02) 49.5%, rgba(14, 165, 233, 0.02) 50.5%, transparent 50.5%),
+    linear-gradient(-45deg, transparent 49.5%, rgba(14, 165, 233, 0.02) 49.5%, rgba(14, 165, 233, 0.02) 50.5%, transparent 50.5%);
+  background-size: 400px 400px, 400px 400px, 80px 80px, 80px 80px;
+  animation: subtleShift 25s ease-in-out infinite;
+  z-index: 0;
+}
+
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Side - University Info */
+.university-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem;
+}
+
+.university-logo {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(14, 165, 233, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.9);
+}
+
+.university-logo::before {
+  content: 'VU';
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.university-info h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.university-tagline {
+  font-size: 1.3rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.university-description {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 400px;
+}
+
+.university-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: rgba(14, 165, 233, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(14, 165, 233, 0.1);
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: #0ea5e9;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.feature-text {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Right Side - Login Form */
+.login-card {
+  background: linear-gradient(145deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(255, 255, 255, 0.92) 100%);
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 15px 35px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(14, 165, 233, 0.1);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  animation: professionalSlideIn 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-left: auto;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.12),
+    0 25px 50px rgba(0, 0, 0, 0.08),
+    0 10px 25px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(14, 165, 233, 0.15);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Premium Header Badge - Sky Blue */
+.login-card::before {
+  content: 'LOGIN PORTAL';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  box-shadow: 
+    0 10px 30px rgba(14, 165, 233, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  margin-top: 25px;
+}
+
+.login-header h1 {
+  color: #333;
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+
+.login-header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #0ea5e9 20%, 
+    #0284c7 50%, 
+    #0ea5e9 80%, 
+    transparent 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+}
+
+.login-header h2 {
+  color: #666;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  margin-top: 35px;
+}
+
+.login-header p {
+  color: #888;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.user-type-toggle {
+  display: flex;
+  margin-bottom: 2.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid #e1e5e9;
+  background: #f8f9fa;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #666;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
+
+.toggle-btn:not(.active):hover {
+  background: #e9ecef;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #333;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Premium Label Accent - Sky Blue */
+.form-group label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 14px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 14px;
+  padding: 3px;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.05),
+    0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-input-wrapper:focus-within {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.03),
+    0 4px 15px rgba(14, 165, 233, 0.15),
+    0 0 0 3px rgba(14, 165, 233, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.form-group input {
+  padding: 17px 22px 17px 54px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: transparent;
+  font-weight: 500;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2px;
+  width: 100%;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #888;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus::placeholder {
+  color: #bbb;
+  transform: translateX(5px);
+}
+
+/* Input Background Icons - Sky Blue */
+.form-group:nth-child(1) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.form-group:nth-child(2) input { 
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="%230ea5e9"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>'); 
+  background-repeat: no-repeat; 
+  background-position: 22px center; 
+  background-size: 20px; 
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input input {
+  width: 100%;
+  padding-right: 3.5rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0ea5e9;
+}
+
+.password-toggle:hover {
+  background: #f8f9fa;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: white;
+  padding: 19px;
+  border: none;
+  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: 2rem;
+  box-shadow: 
+    0 10px 30px rgba(22, 163, 74, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  transition: left 0.6s;
+}
+
+.login-btn:hover::before {
+  left: 100%;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 18px 40px rgba(22, 163, 74, 0.4),
+    0 12px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  letter-spacing: 1.2px;
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+}
+
+.login-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 25px rgba(22, 163, 74, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.register-link a {
+  color: #0ea5e9;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #0284c7;
+  text-decoration: underline;
+}
+
+/* Premium Animations */
+@keyframes professionalSlideIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(50px) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes subtleShift {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 0 0, 0 0; 
+  }
+  50% { 
+    background-position: 5% 5%, 95% 95%, 40px 40px, 40px 40px; 
+  }
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .login-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 500px;
+  }
+  
+  .university-info {
+    order: 2;
+    padding: 2rem 0;
+  }
+  
+  .login-card {
+    order: 1;
+    margin: 0 auto;
+  }
+  
+  .university-features {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1rem;
+  }
+
+  .login-card {
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+  }
+
+  .login-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .login-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .user-type-toggle {
+    margin-bottom: 2rem;
+  }
+
+  .toggle-btn {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .university-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .university-logo::before {
+    font-size: 2.5rem;
+  }
+
+  .university-info h1 {
+    font-size: 2rem;
+  }
+
+  .university-tagline {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .login-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .login-header h2 {
+    font-size: 1rem;
+  }
+
+  .form-group input {
+    padding: 16px 20px 16px 52px;
+  }
+
+  .login-btn {
+    padding: 17px;
+    font-size: 15px;
+  }
+
+  .toggle-btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .university-logo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .university-logo::before {
+    font-size: 2rem;
+  }
+
+  .university-info h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Premium Focus Styles */
+.form-group input:focus-visible,
+.login-btn:focus-visible {
+  outline: 3px solid #0ea5e9;
+  outline-offset: 3px;
+}
+
+/* Premium Loading State */
+.login-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.login-btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 50%;
+  left: 50%;
+  margin: -11px 0 0 -11px;
+  border: 3px solid transparent;
+  border-top: 3px solid #ffffff;
+  border-radius: 50%;
+  animation: premiumSpin 1s linear infinite;
+}
+
+@keyframes premiumSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Premium Selection Styling */
+::selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(14, 165, 233, 0.2);
+  color: inherit;
+}
+
+/* Input Validation States */
+.form-group input:valid {
+  background-image: none;
+}
+
+.form-group input:valid + .form-input-icon::after {
+  content: '✓';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #16a34a;
+  font-size: 16px;
+  font-weight: bold;
+}
