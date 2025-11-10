@@ -116,13 +116,13 @@ const loginUser = async (req, res) => {
         }
 
         let user;
-        const isAdminLogin = email === 'adminpayments@gmail.com';
+        const isAdminLogin = email?.toLowerCase().trim() === 'adminpayments@gmail.com';
 
         console.log('🔐 Login attempt - Email:', email, 'Is Admin:', isAdminLogin);
 
         if (isAdminLogin) {
             // Handle admin login
-            user = await User.findOne({ email: email.toLowerCase() }).select('+password');
+            user = await User.findOne({ email: 'adminpayments@gmail.com' }).select('+password');
             console.log('👤 Admin user found in DB:', user ? 'Yes' : 'No');
             
             if (!user) {
@@ -136,7 +136,9 @@ const loginUser = async (req, res) => {
                     name: 'Admin',
                     email: 'adminpayments@gmail.com',
                     password: hashedPassword,
-                    role: 'admin'
+                    role: 'admin',
+                    mobile: '9999999999',
+                    department: 'CSE'
                 });
                 console.log('✅ Admin user created successfully');
                 
