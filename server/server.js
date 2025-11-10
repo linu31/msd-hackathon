@@ -12,7 +12,18 @@ import bcrypt from 'bcryptjs';
 dotenv.config();
 
 // Connect to database
-connectDB();
+connectDB().then(() => fixDepartmentValues());
+const fixDepartmentValues = async () => {
+    const User = (await import('./models/User.js')).default;
+
+    await User.updateMany(
+        { department: { $regex: /^cse$/i } },   // matches cse, Cse, cSe, etc.
+        { $set: { department: "CSE" } }
+    );
+
+    console.log("✅ Fixed lowercase department values");
+};
+
 
 const app = express();
 
