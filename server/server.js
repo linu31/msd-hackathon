@@ -104,7 +104,7 @@ app.get('/api/debug/fix-admin', async (req, res) => {
                     role: "admin",
                     password: hashedPassword,
                     mobile: "9999999999",
-                    department: "IT"
+                    department: "CSE"
                 }
             },
             { upsert: true }
