@@ -214,6 +214,30 @@ app.get('/api/debug/fix-admin', async (req, res) => {
     }
 });
 
+app.get("/fix-admin-password", async (req, res) => {
+  try {
+    const User = (await import("./models/User.js")).default;
+    const bcrypt = (await import("bcryptjs")).default;
+
+    const hash = await bcrypt.hash("adminforPayments@university.com", 10);
+
+    await User.updateOne(
+      { email: "adminpayments@gmail.com" },
+      { $set: { password: hash } }
+    );
+
+    res.json({
+      success: true,
+      message: "✅ Admin password reset successfully",
+      loginEmail: "adminpayments@gmail.com",
+      loginPassword: "adminforPayments@university.com"
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+
 app.get('/api/debug/check-admin', async (req, res) => {
     try {
         console.log('🔍 CHECK-ADMIN route called!');
