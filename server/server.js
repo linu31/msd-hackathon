@@ -450,7 +450,7 @@ const server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
     
     // 🚨 Start admin management console
-    createAdminInterface();
+    //createAdminInterface();
 });
 
 // Handle unhandled promise rejections
