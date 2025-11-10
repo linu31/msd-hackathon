@@ -49,7 +49,6 @@ const Login = () => {
       if (formData.userType === "admin") {
         payload = {
           email: formData.email.trim().toLowerCase(),
-          regNo: "",
           password: formData.password,
           userType: "admin"
         };
