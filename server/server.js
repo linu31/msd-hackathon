@@ -130,6 +130,38 @@ app.get('/api/debug/check-admin', async (req, res) => {
     }
 });
 
+// ✅ FINAL FIX: Reset admin password (single hash, no double hashing)
+app.get("/api/debug/reset-admin", async (req, res) => {
+    try {
+        const UserModule = await import("./models/User.js");
+        const User = UserModule.default;
+
+        const bcrypt = (await import("bcryptjs")).default;
+
+        const plainPassword = "adminforPayments@university.com";
+
+        // ✅ Hash ONLY once
+        const hashed = await bcrypt.hash(plainPassword, 10);
+
+        // ✅ Use updateOne (NO pre-save hook → NO double hashing)
+        await User.updateOne(
+            { email: "adminpayments@gmail.com" },
+            { $set: { password: hashed, role: "admin" } },
+            { runValidators: false }
+        );
+
+        res.json({
+            success: true,
+            message: "Admin password reset to default ✅",
+            loginEmail: "adminpayments@gmail.com",
+            loginPassword: plainPassword
+        });
+
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
 
 // 🚨 ADDED: Debug routes - GET VERSIONS FOR BROWSER
 app.get('/api/debug/fix-admin', async (req, res) => {
