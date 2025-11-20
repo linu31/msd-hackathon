@@ -1881,6 +1881,331 @@
   cursor: not-allowed;
 }
 
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+/* Large devices (desktops, 1024px and up) */
+@media (max-width: 1024px) {
+  .dashboard, .admin-dashboard {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .slideshow {
+    height: 350px;
+  }
+  
+  .welcome-section-fullwidth {
+    padding: 3rem 1.5rem;
+  }
+  
+  .college-name-fullwidth {
+    font-size: 3rem;
+  }
+  
+  .welcome-message-fullwidth {
+    font-size: 2rem;
+  }
+}
 
-/* Rest of your existing CSS remains the same below this point */
-/* [Keep all your existing slideshow, benefits, payment sections CSS as they were] */
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .dashboard, .admin-dashboard {
+    padding: 1rem;
+  }
+  
+  .slideshow {
+    height: 300px;
+  }
+  
+  .benefits-section,
+  .payment-prompt,
+  .fee-options,
+  .payment-history,
+  .instructions,
+  .admin-welcome {
+    padding: 1.5rem;
+  }
+  
+  .benefits-section ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .fee-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .department-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .payment-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  
+  .payment-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .btn-yes, .btn-no {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+  }
+  
+  .total-students-card {
+    padding: 2rem;
+  }
+  
+  .total-count {
+    font-size: 3rem;
+  }
+  
+  .student-count {
+    font-size: 2rem;
+  }
+  
+  .payment-actions {
+    flex-direction: column;
+    padding: 0 1.5rem 1.5rem;
+    gap: 1rem;
+  }
+  
+  .receipt-modal {
+    padding: 1rem;
+  }
+  
+  .receipt-meta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .authorization {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .email-section {
+    flex-direction: column;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .payment-table {
+    font-size: 0.875rem;
+  }
+  
+  .payment-table th,
+  .payment-table td {
+    padding: 0.5rem;
+  }
+  
+  .welcome-section-fullwidth {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+  
+  .college-name-fullwidth {
+    font-size: 2rem;
+  }
+  
+  .welcome-message-fullwidth {
+    font-size: 1.5rem;
+  }
+  
+  .college-tagline-fullwidth {
+    font-size: 1rem;
+  }
+}
+
+/* Small devices (phones, 480px and up) */
+@media (max-width: 480px) {
+  .dashboard, .admin-dashboard {
+    padding: 0.5rem;
+  }
+  
+  .slideshow {
+    height: 200px;
+  }
+  
+  .benefits-section,
+  .payment-prompt,
+  .fee-options,
+  .payment-history,
+  .instructions,
+  .admin-welcome {
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .benefits-section h2,
+  .payment-prompt h2,
+  .fee-options h3,
+  .payment-history h3,
+  .instructions h3,
+  .admin-welcome h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .benefits-section li {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .fee-card {
+    padding: 1.5rem;
+  }
+  
+  .fee-card h4 {
+    font-size: 1.2rem;
+  }
+  
+  .total-students-card {
+    padding: 1.5rem;
+  }
+  
+  .total-count {
+    font-size: 2.5rem;
+  }
+  
+  .department-card {
+    padding: 1.5rem;
+  }
+  
+  .student-count {
+    font-size: 1.8rem;
+  }
+  
+  .payment-form {
+    width: 95%;
+  }
+  
+  .payment-header,
+  .payment-info,
+  .payment-actions {
+    padding: 1rem;
+  }
+  
+  .receipt-content {
+    padding: 1rem;
+  }
+  
+  .receipt-university-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .receipt-header {
+    padding: 1rem;
+  }
+  
+  .receipt-actions {
+    padding: 1rem;
+  }
+  
+  .welcome-section-fullwidth {
+    padding: 1.5rem 0.5rem;
+    min-height: 200px;
+  }
+  
+  .college-name-fullwidth {
+    font-size: 1.5rem;
+  }
+  
+  .welcome-message-fullwidth {
+    font-size: 1.2rem;
+  }
+  
+  .college-tagline-fullwidth {
+    font-size: 0.9rem;
+  }
+  
+  .slideshow-indicators {
+    bottom: 10px;
+  }
+  
+  .slideshow-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Extra small devices (phones, 360px and below) */
+@media (max-width: 360px) {
+  .dashboard, .admin-dashboard {
+    padding: 0.25rem;
+  }
+  
+  .benefits-section,
+  .payment-prompt,
+  .fee-options,
+  .payment-history,
+  .instructions,
+  .admin-welcome {
+    padding: 0.75rem;
+  }
+  
+  .fee-card {
+    padding: 1rem;
+  }
+  
+  .department-card {
+    padding: 1rem;
+  }
+  
+  .total-students-card {
+    padding: 1rem;
+  }
+  
+  .total-count {
+    font-size: 2rem;
+  }
+  
+  .college-name-fullwidth {
+    font-size: 1.3rem;
+  }
+  
+  .welcome-message-fullwidth {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+  .slideshow {
+    height: 250px;
+  }
+  
+  .welcome-section-fullwidth {
+    min-height: 200px;
+    padding: 1.5rem 2rem;
+  }
+  
+  .payment-modal {
+    padding: 0.5rem;
+  }
+  
+  .receipt-modal {
+    padding: 0.5rem;
+  }
+}
+
+/* High-resolution devices */
+@media (min-width: 1400px) {
+  .dashboard, .admin-dashboard {
+    max-width: 1300px;
+  }
+}

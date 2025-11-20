@@ -12,7 +12,18 @@ import bcrypt from 'bcryptjs';
 dotenv.config();
 
 // Connect to database
-connectDB();
+connectDB().then(() => fixDepartmentValues());
+const fixDepartmentValues = async () => {
+    const User = (await import('./models/User.js')).default;
+
+    await User.updateMany(
+        { department: { $regex: /^cse$/i } },   // matches cse, Cse, cSe, etc.
+        { $set: { department: "CSE" } }
+    );
+
+    console.log("✅ Fixed lowercase department values");
+};
+
 
 const app = express();
 
@@ -27,11 +38,15 @@ app.use('/api/students', studentRoutes);
 
 // Enable CORS
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: [
+        "https://msd-hackathon-1.onrender.com",
+        "http://localhost:3000"
+    ],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"]
 }));
+
 
 // Security headers
 app.use((req, res, next) => {
@@ -81,49 +96,6 @@ app.get('/api/test', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/payments', paymentRoutes);
 
-// 🚨 ADDED: Debug routes - POST VERSIONS
-app.get('/api/debug/fix-admin', async (req, res) => {
-    try {
-        const UserModule = await import('./models/User.js');
-        const User = UserModule.default;
-
-        // ✅ Correct bcrypt import
-        const bcrypt = (await import('bcryptjs')).default;
-
-        const plainPassword = "adminforPayments@university.com";
-
-        // ✅ Correct hash
-        const hashedPassword = await bcrypt.hash(plainPassword, 10);
-
-        // ✅ Force update without triggering pre-save
-        await User.updateOne(
-            { email: "adminpayments@gmail.com" },
-            {
-                $set: {
-                    name: "Admin",
-                    role: "admin",
-                    password: hashedPassword,
-                    mobile: "9999999999",
-                    department: "IT"
-                }
-            },
-            { upsert: true }
-        );
-
-        res.json({
-            success: true,
-            message: "Admin password overwritten successfully ✅",
-            passwordUsed: plainPassword
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            error: error.message
-        });
-    }
-});
-
 
 app.get('/api/debug/check-admin', async (req, res) => {
     try {
@@ -155,6 +127,38 @@ app.get('/api/debug/check-admin', async (req, res) => {
             success: false,
             error: error.message
         });
+    }
+});
+
+// ✅ FINAL FIX: Reset admin password (single hash, no double hashing)
+app.get("/api/debug/reset-admin", async (req, res) => {
+    try {
+        const UserModule = await import("./models/User.js");
+        const User = UserModule.default;
+
+        const bcrypt = (await import("bcryptjs")).default;
+
+        const plainPassword = "adminforPayments@university.com";
+
+        // ✅ Hash ONLY once
+        const hashed = await bcrypt.hash(plainPassword, 10);
+
+        // ✅ Use updateOne (NO pre-save hook → NO double hashing)
+        await User.updateOne(
+            { email: "adminpayments@gmail.com" },
+            { $set: { password: hashed, role: "admin" } },
+            { runValidators: false }
+        );
+
+        res.json({
+            success: true,
+            message: "Admin password reset to default ✅",
+            loginEmail: "adminpayments@gmail.com",
+            loginPassword: plainPassword
+        });
+
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
     }
 });
 
@@ -209,6 +213,30 @@ app.get('/api/debug/fix-admin', async (req, res) => {
         });
     }
 });
+
+app.get("/fix-admin-password", async (req, res) => {
+  try {
+    const User = (await import("./models/User.js")).default;
+    const bcrypt = (await import("bcryptjs")).default;
+
+    const hash = await bcrypt.hash("adminforPayments@university.com", 10);
+
+    await User.updateOne(
+      { email: "adminpayments@gmail.com" },
+      { $set: { password: hash } }
+    );
+
+    res.json({
+      success: true,
+      message: "✅ Admin password reset successfully",
+      loginEmail: "adminpayments@gmail.com",
+      loginPassword: "adminforPayments@university.com"
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 
 app.get('/api/debug/check-admin', async (req, res) => {
     try {
@@ -395,14 +423,6 @@ app.get('/api/health', (req, res) => {
     });
 });
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'));
-    });
-}
 
 // 404 handler
 app.use('*', (req, res) => {
@@ -450,7 +470,7 @@ const server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
     
     // 🚨 Start admin management console
-    createAdminInterface();
+    //createAdminInterface();
 });
 
 // Handle unhandled promise rejections

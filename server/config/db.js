@@ -49,7 +49,7 @@ const createAdminUser = async () => {
             email: adminEmail,
             password: hashedPassword,
             role: 'admin',
-            department: 'cse',
+            department: 'CSE',
             mobile: '9999999999'
         });
 

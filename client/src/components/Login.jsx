@@ -22,7 +22,6 @@ const Login = () => {
     if (formData.userType === 'admin') {
       setFormData({
         email: "adminpayments@gmail.com",
-        regNo: "",
         password: "adminforPayments@university.com",
         userType: "admin"
       });
@@ -49,7 +48,6 @@ const Login = () => {
       if (formData.userType === "admin") {
         payload = {
           email: formData.email.trim().toLowerCase(),
-          regNo: "",
           password: formData.password,
           userType: "admin"
         };
