@@ -8,6 +8,7 @@ import Register from './components/Register';
 import StudentDashboard from './components/StudentDashboard';
 import AdminDashboard from './components/AdminDashboard';
 import Header from './components/Header';
+import ChatBot from './components/ChatBot';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 
