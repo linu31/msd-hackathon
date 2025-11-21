@@ -51,7 +51,7 @@ const ChatBot = () => {
     try {
       console.log('🔄 Sending to AI service:', inputMessage);
       
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch(`${import.meta.env.VITE_AI_SERVICE_URL}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ const ChatBot = () => {
   const testAIConnection = async () => {
     try {
       console.log('🧪 Testing AI connection...');
-      const response = await fetch('http://localhost:8000/api/health');
+      const response = await fetch(`${import.meta.env.VITE_AI_SERVICE_URL}/api/health`);
       const data = await response.json();
       console.log('✅ AI Health check:', data);
       return data.status === 'healthy';
@@ -242,5 +242,6 @@ const ChatBot = () => {
     </>
   );
 };
+
 
 export default ChatBot;
