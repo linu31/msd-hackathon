@@ -80,6 +80,7 @@ function App() {
             <Route path="/" element={<Navigate to="/login" />} />
 
           </Routes>
+          <ChatBot />
 
           <ToastContainer position="top-right" autoClose={3000} />
         </div>
